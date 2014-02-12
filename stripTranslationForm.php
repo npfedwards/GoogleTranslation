@@ -4,7 +4,7 @@
         <title>Add Translations To Array</title>
     </head>
     <body>
-        <form action='strip.php' method='post'>
+        <form action='strip.php' method='get'>
     File: <input type='text' name='file'><br>
 Language: <input type='text' name='lang'><br>
 Translations: <textarea rows='35' cols='100' name='translations'></textarea><br>

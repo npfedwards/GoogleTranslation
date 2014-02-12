@@ -8,11 +8,15 @@
 ", $translations);
 
     $i=0;
+    $filewrite = '<?php return array(';
     foreach($dictionary as $key => $value){
         if(isset($translations[$i])){
-            echo "&nbsp;&nbsp;&nbsp;&nbsp;'" . $key . "' => '" . $translations[$i] . "',<br>";
+            $filewrite .= "    '" . $key . "' => '" . $translations[$i] . "',\r\n";
         }else{
-            echo "&nbsp;&nbsp;&nbsp;&nbsp;'" . $key . "' => '', //No Translation Yet<br>";
+            $filewrite .= "    '" . $key . "' => '', //No Translation Yet\r\n";
         }
         $i++;
     }
+    $filewrite .= ');';
+
+    file_put_contents(__DIR__.'/'. time() . '.php', $filewrite);
